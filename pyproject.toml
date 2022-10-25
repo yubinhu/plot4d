@@ -1,0 +1,28 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "plot4d"
+version = "0.0.3"
+authors = [
+  { name="Harvey Hu", email="harvey_hu@berkeley.edu" },
+]
+description = "A simple package that helps plot arbitrary 4d functions. "
+readme = "README.md"
+requires-python = ">=3.7"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+  "matplotlib",
+  "numpy",
+  "imageio",
+  "dataclasses"
+]
+
+[project.urls]
+"Homepage" = "https://github.com/yubinhu/plot4d"
+"Bug Tracker" = "https://github.com/yubinhu/plot4d/issues"
