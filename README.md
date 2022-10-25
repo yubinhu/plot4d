@@ -2,7 +2,7 @@
 
 This is a simple package for plotting arbitrary 4d functions.
 
-There seems to be no current python library available for visualizing arbitrary 4D function, so here's one :)
+There seems to be no current python library available for visualizing arbitrary 4D functions, so here's one :)
 
 Example result:
 ![Alt Text](https://github.com/yubinhu/plot4d/blob/main/tests/example.gif)
