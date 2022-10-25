@@ -4,6 +4,8 @@ This is a simple package for plotting arbitrary 4D functions.
 
 There seems to be no current python library available for visualizing arbitrary 4-dimensional functions, so here's one :)
 
+Function w(x, y, z) is visualized as a gif where each frame is a cross-section at w(x, y, z=z_plot), and the fourth dimension (value of w) is represented by color.
+
 Example result:
 ![Alt Text](https://github.com/yubinhu/plot4d/blob/main/tests/example.gif)
 
