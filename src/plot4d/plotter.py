@@ -7,7 +7,6 @@ from dataclasses import dataclass
 
 @dataclass
 class Bound2D:
-    """Class for keeping track of an item in inventory."""
     xmin: float = 0
     xmax: float = 1
     ymin: float = 0
