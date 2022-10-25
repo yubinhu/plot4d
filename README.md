@@ -19,7 +19,7 @@ Example result:
 
 ## Functions
 
-- `plotter.plot4d_CS` for plotting a single 2D cross-section for an arbitrary 4D function
+- `plotter.plot4d_CS` for plotting a single cross-section for an arbitrary 4D function
 - `plotter.plot4d` for generating a series of cross-section plots for an arbitrary 4D function
 
 ## Quick Start
