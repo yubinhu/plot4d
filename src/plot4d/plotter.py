@@ -80,7 +80,7 @@ def plot4d(func, z_values, wbounds=None, bound2d=Bound2d(), path=None, save_imag
         fps (int, optional): Frames per second used in gif. Defaults to 1.
 
     Returns:
-        _type_: _description_
+        gif_name: name of gif generated in the same folder
     """    
     if path==None:
         path = os.getcwd() + "/temp"
