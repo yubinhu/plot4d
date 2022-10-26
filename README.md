@@ -1,4 +1,4 @@
-# Plot 4D package
+# Plot4D Package
 
 This is a simple package for plotting arbitrary 4D functions.
 
