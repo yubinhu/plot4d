@@ -22,5 +22,24 @@ Example result:
 - `plotter.plot4d_CS` for plotting a single cross-section for an arbitrary 4D function
 - `plotter.plot4d` for generating a series of cross-section plots for an arbitrary 4D function
 
+Inputs and returns are well documented in the docstrings.
+
 ## Quick Start
 Basic use examples can be found here: [basic tour notebook](https://github.com/yubinhu/plot4d/blob/main/tests/example.ipynb).
+
+## Additional Notes
+
+Input "bound2d" should be an instance of plotter.Bound2d defined as the following:
+
+```python
+@dataclass
+class Bound2d:
+    xmin: float = 0
+    xmax: float = 1
+    ymin: float = 0
+    ymax: float = 1
+    xlabel: str = "x"
+    ylabel: str = "y"
+```
+
+This dataclass is created for reducing the number of input variables.
