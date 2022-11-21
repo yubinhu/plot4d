@@ -20,26 +20,27 @@ Example result:
 ## Functions
 
 - `plotter.plot4d_CS` for plotting a single cross-section for an arbitrary 4D function
-- `plotter.plot4d` for generating a series of cross-section plots for an arbitrary 4D function
+- `plotter.plot4d` for generating an animation of cross-section plots for an arbitrary 4D function
 
 Inputs and returns are well documented in the docstrings.
 
 ## Quick Start
+
 Basic use examples can be found here: [basic tour notebook](https://github.com/yubinhu/plot4d/blob/main/tests/example.ipynb).
 
-## Additional Notes
+## Notes
 
-Input "bound2d" should be an instance of plotter.Bound2d defined as the following:
+Input parameter "frame" should be an instance of plotter.Frame2D as defined here:
 
 ```python
 @dataclass
-class Bound2d:
+class Frame2D: 
     xmin: float = 0
     xmax: float = 1
     ymin: float = 0
     ymax: float = 1
     xlabel: str = "x"
     ylabel: str = "y"
+    xnum: int = 20 # number of sample points in the x direction
+    ynum: int = 20 # number of sample points in the y direction
 ```
-
-This dataclass is created for reducing the number of input variables.
