@@ -72,13 +72,13 @@ def plot4d_CS(func, z_plot, z_label='z', frame=Frame2D(), wbounds=None, color_nu
     x, y, w = _evaluate(func, frame, z_plot)
     _plot(x, y, w, frame, z_plot, z_label, wbounds, color_num, path, func_name)
 
-def plot4d(func, z_values, wbounds=None, frame=Frame2D(), path=None, save_images=True, color_num = 21, fps=1, func_name=None, z_label='z'):
+def plot4d(func, z_values, path="", wbounds=None, frame=Frame2D(), save_images=False, color_num = 21, fps=1, func_name=None, z_label='z', png_path=None):
     """Plot a 4D function w(x,y,z) by crosssections and create a gif for it. 
 
     Args:
         func (function): Function to plot.
         z_values (interable): Values of z at cross sections we want to plot at.
-        path (str, optional): Path for generated images. Default to None. 
+        png_path (str, optional): Path for generated images. Default to None. 
         wbounds (tuple, optional): Color bar range. If None then auto set. 
         bound2d (Bound2d, optional): Bounds on x and y. Default to (xmin=0, xmax=1, ymin=0, ymax=1). 
         func_name (str, optional): Name of the 4D function we are plotting. 
@@ -89,8 +89,8 @@ def plot4d(func, z_values, wbounds=None, frame=Frame2D(), path=None, save_images
     Returns:
         gif_name: name of gif generated in the same folder
     """    
-    if path==None:
-        path = os.getcwd() + "/temp"
+    if png_path==None:
+        png_path = os.getcwd() + "/plot4d_temp"
     filenames = []
     
     values = []
@@ -106,16 +106,17 @@ def plot4d(func, z_values, wbounds=None, frame=Frame2D(), path=None, save_images
             values.append((x,y,w,z))
         
         for x,y,w,z in values:
-            fn = _plot(x, y, w, frame, z, z_label, (wmin, wmax), color_num, path, func_name, show=False)
+            fn = _plot(x, y, w, frame, z, z_label, (wmin, wmax), color_num, png_path, func_name, show=False)
             filenames.append(fn)
     else:
         for z in z_values:
             x, y, w = _evaluate(func, frame, z)
-            fn = _plot(x, y, w, frame, z, z_label, (wmin, wmax), color_num, path, func_name, show=False)
+            fn = _plot(x, y, w, frame, z, z_label, (wmin, wmax), color_num, png_path, func_name, show=False)
             filenames.append(fn)
     
     gif_name = "Cross Sections" if func_name==None else func_name
     gif_name += ".gif"
+    gif_name = path+gif_name
     with imageio.get_writer(gif_name, mode='I', fps=fps) as writer:
         for filename in filenames:
             image = imageio.imread(filename)
@@ -124,8 +125,8 @@ def plot4d(func, z_values, wbounds=None, frame=Frame2D(), path=None, save_images
                 os.remove(filename)
 
     # remove path if folder is empty
-    if not os.listdir(path):
-        os.rmdir(path)
+    if not os.listdir(png_path):
+        os.rmdir(png_path)
         
     print("Animation saved as \"%s\""%gif_name)
     
