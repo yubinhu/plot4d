@@ -15,16 +15,19 @@ Example result:
   pip install plot4d
   ```
 
-## Functions
-
-- `plotter.plot4d_CS` for plotting a single cross-section for an arbitrary 4D function
-- `plotter.plot4d` for generating an animation of cross-section plots for an arbitrary 4D function
-
-Inputs and returns are well documented in the docstrings.
-
 ## Quick Start
 
-Basic use examples can be found here: [basic tour notebook](https://github.com/yubinhu/plot4d/blob/main/tests/example.ipynb).
+- `plotter.plot4d_CS(f, z_plot)` plots a single cross-section of $f(x, y, z)$ at $z_{plot}$.
+
+  Example use: `plotter.plot4d_CS(lambda x, y, z: x+y+z, 10)`
+
+- `plotter.plot4d(f, z_values)` generates an animation of cross-section plots at $z \in z_{values}$ for $f(x, y, z)$ (See example result above).
+
+  Example use: `plotter.plot4d(lambda x, y, z: x**2+y-y**3*z, range(0,5))`
+
+- `plotter.plot4d_data(X, y)` helps visualize your data. X has shape $n \times d$ and y has shape $n \times 1$.
+
+More examples can be found here: [basic tour notebook](https://github.com/yubinhu/plot4d/blob/main/tests/example.ipynb).
 
 ## Notes
 
