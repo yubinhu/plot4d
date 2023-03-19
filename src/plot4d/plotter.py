@@ -110,6 +110,7 @@ def plot4d(func, z_values, path="", wbounds=None, frame=Frame2D(), save_images=F
             fn = _plot(x, y, w, frame, z, z_label, (wmin, wmax), color_num, png_path, func_name, show=False)
             filenames.append(fn)
     else:
+        wmin, wmax = wbounds
         for z in z_values:
             x, y, w = _evaluate(func, frame, z)
             fn = _plot(x, y, w, frame, z, z_label, (wmin, wmax), color_num, png_path, func_name, show=False)
